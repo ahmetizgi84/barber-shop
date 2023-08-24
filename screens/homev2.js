@@ -181,9 +181,9 @@ const HomeV2 = ({ navigation }) => {
 
           {/* SPECIALISTS */}
           <View style={styles.home_bottom_shop}>
-            <Text style={styles.specialist}>Our Specialist</Text>
+            <Text style={styles.specialist}>Top Specialists</Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => handleNavigate("Specialist")}>
               <Text style={{ color: "#fda020", fontSize: 13 }}>See All</Text>
             </TouchableOpacity>
           </View>
@@ -256,7 +256,8 @@ const HomeV2 = ({ navigation }) => {
             >
               <Text style={{ color: "#fda020", fontSize: 13 }}>Gallery</Text>
             </TouchableOpacity>
-            <TouchableOpacity
+
+            {/* <TouchableOpacity
               style={{
                 paddingHorizontal: 16,
                 paddingVertical: 8,
@@ -267,7 +268,8 @@ const HomeV2 = ({ navigation }) => {
               onPress={() => handleNavigate("Review")}
             >
               <Text style={{ color: "#fda020", fontSize: 13 }}>Review</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+
             {/* </ScrollView> */}
           </View>
         </View>

@@ -8,7 +8,8 @@ import About from "./screens/about";
 import Services from "./screens/services";
 import Packages from "./screens/packages";
 import Gallery from "./screens/gallery";
-import Review from "./screens/review";
+import Specialists from "./screens/specialists";
+// import Review from "./screens/review";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +23,8 @@ export default function App() {
           <Stack.Screen name="Service" component={Services} />
           <Stack.Screen name="Package" component={Packages} />
           <Stack.Screen name="Gallery" component={Gallery} />
-          <Stack.Screen name="Review" component={Review} />
+          <Stack.Screen name="Specialist" component={Specialists} />
+          {/* <Stack.Screen name="Review" component={Review} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
