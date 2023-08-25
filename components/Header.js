@@ -2,11 +2,11 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import FeatherIcons from "@expo/vector-icons/Feather";
 
-const Header = ({ returnOnly = false, navigation }) => {
+const Header = ({ returnOnly = false, callback }) => {
   if (returnOnly) {
     return (
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <TouchableOpacity onPress={callback}>
           <FeatherIcons name="arrow-left" size={20} color="white" />
         </TouchableOpacity>
 

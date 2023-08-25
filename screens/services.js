@@ -49,7 +49,7 @@ const ServiceData = [
   },
 ];
 
-const ListCard = ({ service }) => (
+const ListCard = ({ service, navigation }) => (
   <TouchableOpacity
     style={{
       backgroundColor: "#1f222a",
@@ -60,6 +60,12 @@ const ListCard = ({ service }) => (
       marginTop: 12,
       borderRadius: 12,
     }}
+    onPress={() =>
+      navigation.navigate("ServiceDetail", {
+        title: service.serviceName,
+        serviceId: service.id,
+      })
+    }
   >
     <Text style={{ color: "#fff", marginTop: 6, fontSize: 13 }}>
       {service.serviceName}
@@ -85,7 +91,7 @@ const Services = ({ navigation }) => {
         { paddingBottom: insets.bottom, paddingTop: insets.top },
       ]}
     >
-      <Header returnOnly navigation={navigation} />
+      <Header returnOnly callback={() => navigation.navigate("Home")} />
       <StatusBar style="light" />
 
       {/* Content */}
@@ -102,7 +108,9 @@ const Services = ({ navigation }) => {
       <View style={{ marginTop: 12, flex: 1 }}>
         <FlatList
           data={ServiceData}
-          renderItem={({ item }) => <ListCard service={item} />}
+          renderItem={({ item }) => (
+            <ListCard service={item} navigation={navigation} />
+          )}
           keyExtractor={(item) => item.id}
         />
       </View>

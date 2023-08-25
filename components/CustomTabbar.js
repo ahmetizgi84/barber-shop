@@ -7,20 +7,15 @@ import {
   StatusBar,
 } from "react-native";
 import { TabView, SceneMap } from "react-native-tab-view";
-
-const FirstRoute = () => (
-  <View style={[styles.container, { backgroundColor: "#ff4081" }]} />
-);
-const SecondRoute = () => (
-  <View style={[styles.container, { backgroundColor: "#673ab7" }]} />
-);
+import ManServices from "./ManServices";
+import WomanServices from "./WomanServices";
 
 export default class CustomTabbar extends React.Component {
   state = {
     index: 0,
     routes: [
-      { key: "first", title: "About Us" },
-      { key: "second", title: "Services" },
+      { key: "first", title: "Man" },
+      { key: "second", title: "Woman" },
     ],
   };
 
@@ -41,27 +36,17 @@ export default class CustomTabbar extends React.Component {
 
           return (
             <TouchableOpacity
+              key={i}
               style={{
-                paddingHorizontal: 16,
-                paddingVertical: 8,
+                // paddingHorizontal: 16,
+                alignItems: "center",
+                flex: 1,
+                paddingVertical: 12,
                 borderColor: "#fda020",
                 borderWidth: 1,
-                borderRadius: "100%",
+                borderRadius: 99,
                 marginRight: 12,
               }}
-              onPress={() => this.setState({ index: i })}
-            >
-              <Animated.Text
-                style={{ opacity, color: "#fda020", fontSize: 13 }}
-              >
-                {route.title}
-              </Animated.Text>
-            </TouchableOpacity>
-          );
-
-          return (
-            <TouchableOpacity
-              style={styles.tabItem}
               onPress={() => this.setState({ index: i })}
             >
               <Animated.Text style={{ opacity, color: "#fda020" }}>
@@ -75,8 +60,8 @@ export default class CustomTabbar extends React.Component {
   };
 
   _renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
+    first: ManServices,
+    second: WomanServices,
   });
 
   render() {

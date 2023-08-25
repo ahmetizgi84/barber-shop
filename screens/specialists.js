@@ -140,7 +140,7 @@ const Specialists = ({ navigation }) => {
         { paddingBottom: insets.bottom, paddingTop: insets.top },
       ]}
     >
-      <Header returnOnly navigation={navigation} />
+      <Header returnOnly callback={() => navigation.navigate("Home")} />
       <StatusBar style="light" />
 
       {/* Content */}
